@@ -1,0 +1,486 @@
+/* 1. Global Reset & Brand Colors */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --oppty-orange: #f47920; /* Brand Color from Logo */
+    --oppty-navy: #1d2b3a;   /* Deep Professional Navy */
+    --text-white: #ffffff;
+    --text-dark: #333333;
+    --transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* 2. Header & Navbar Positioning */
+.main-header {
+    background: var(--oppty-navy); /* */
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 3. Logo Styling */
+.logo img {
+    height: 50px; /* Perfectly sized for the nav height */
+    width: auto;
+    display: block;
+    transition: var(--transition);
+}
+.logo img {
+    height: 50px;
+    border-radius: 4px; 
+}
+
+/* 4. Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links li {
+    position: relative; /* Essential for dropdown alignment */
+}
+
+.nav-links li a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 18px;
+    transition: var(--transition);
+    display: block;
+}
+
+.nav-links li a:hover, 
+.nav-links li a.active {
+    color: var(--oppty-orange); /* */
+}
+
+/* 5. Mega Menu (Hover Visibility Logic) */
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px); /* Starts lower for animation */
+    width: 500px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-top: 4px solid var(--oppty-orange); /* */
+    
+    /* Hidden State */
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+/* Trigger Visibility on Hover */
+.dropdown-wrapper:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(5px); /* Slides up into place */
+}
+
+.mega-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.mega-column h3 {
+    color: var(--oppty-navy); /* */
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.mega-column a {
+    color: var(--text-dark) !important; /* Overrides white nav text */
+    display: block;
+    font-size: 14px;
+    padding: 7px 0 !important;
+    transition: var(--transition);
+}
+
+.mega-column a:hover {
+    color: var(--oppty-orange) !important;
+    transform: translateX(5px); /* Slide effect on hover */
+}
+
+/* 6. Action Button (Contact Us) */
+.nav-cta {
+    background: var(--oppty-orange) !important; /* */
+    color: white !important;
+    border-radius: 5px;
+    font-weight: 600 !important;
+    margin-left: 10px;
+}
+
+.nav-cta:hover {
+    background: #e66a10 !important;
+    box-shadow: 0 4px 15px rgba(244, 121, 32, 0.4);
+}
+
+/* 7. Dropdown Arrow Styling */
+.arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 6px;
+    vertical-align: middle;
+    border-top: 5px solid white;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    transition: var(--transition);
+}
+
+.dropdown-wrapper:hover .arrow {
+    transform: rotate(180deg);
+    border-top-color: var(--oppty-orange);
+}
+
+/* Footer Base Styling */
+.main-footer {
+    background: var(--oppty-navy);
+    color: white;
+    padding: 80px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Brand Section */
+.footer-logo {
+    height: 45px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.footer-column p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Footer Links */
+.footer-column h3 {
+    color: var(--oppty-orange);
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: var(--oppty-orange);
+    padding-left: 5px;
+}
+
+/* Contact Box with "Good Radius" */
+.contact-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-radius: 24px; /* Matches Mega Menu Radius */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.footer-form input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 15px;
+    border-radius: 10px; /* Small radius for inputs */
+    color: white;
+}
+
+.btn-pill {
+    background: var(--oppty-orange);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50px; /* Pill Radius to match Header CTA */
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-pill:hover {
+    background: #e66a10;
+    box-shadow: 0 4px 15px rgba(244, 121, 32, 0.4);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-bottom a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+
+
+
+
+/* Footer Base Styling */
+.main-footer {
+    background: var(--oppty-navy);
+    color: white;
+    padding: 80px 0 20px;
+    margin-top: 50px;
+    border-top: 2px solid var(--oppty-orange); /* Top border to define the section */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Brand Section */
+.footer-logo {
+    height: 45px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Added border to logo container */
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05); /* Logo subtle pop effect */
+}
+
+.footer-column p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Footer Links with Hover Transitions */
+.footer-column h3 {
+    color: var(--oppty-orange);
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-column ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-block; /* Required for transform */
+}
+
+.footer-column ul li a:hover {
+    color: var(--oppty-orange);
+    transform: translateX(8px); /* Link slide effect */
+    text-shadow: 0 0 8px rgba(244, 121, 32, 0.3); /* Subtle orange glow */
+}
+
+/* Contact Box with Enhanced Borders */
+.contact-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Base border */
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.contact-box:hover {
+    border-color: var(--oppty-orange); /* Border changes to orange on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Adds depth */
+}
+
+.footer-form input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 15px;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.footer-form input:focus {
+    border-color: var(--oppty-orange); /* Input focus border */
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(244, 121, 32, 0.2);
+}
+
+.btn-pill {
+    background: var(--oppty-orange);
+    color: white;
+    border: 1px solid transparent;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-pill:hover {
+    background: transparent; /* Ghost effect on hover */
+    border-color: var(--oppty-orange);
+    color: var(--oppty-orange);
+    transform: translateY(-3px); /* Button lift */
+    box-shadow: 0 5px 15px rgba(244, 121, 32, 0.3);
+}
+
+/* Footer Bottom */
+.footer-bottom a:hover {
+    color: var(--oppty-orange);
+    text-decoration: underline;
+}
+
+
+/* Certification Styling */
+.footer-certificates {
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.05); /* Subtle distinction */
+}
+
+.cert-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.cert-card {
+    background: #ffffff;
+    padding: 10px 20px;
+    border-radius: 12px; /* Smooth rounded corners */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.cert-card img {
+    height: 100px; /* Uniform size */
+    width: auto;
+    filter: grayscale(100%); /* Keeps footer uniform */
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--oppty-orange);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cert-card:hover img {
+    filter: grayscale(0%); /* Shows original color on hover */
+    opacity: 1;
+}
+
+
+.social-links a:hover {
+    color: var(--oppty-orange);
+    transform: translateY(-3px);
+}
+
+.social-links a {
+    transition: all 0.3s ease;
+    color: #c4c3c3;
+    margin-right: 10px;
+    margin-bottom: -30px;
+}
+
+/* Social Media Icons Styling */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05); /* Subtle glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%; /* Perfect circular radius */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Pop-out transition */
+}
+
+.social-icon:hover {
+    background: var(--oppty-orange);
+    border-color: var(--oppty-orange);
+    color: white;
+    transform: translateY(-5px) scale(1.1); /* Lift and grow effect */
+    box-shadow: 0 5px 15px rgba(244, 121, 32, 0.4);
+}
+
+/* Ensure Font Awesome Icons are centered */
+.social-icon i {
+    line-height: 0;
+}
