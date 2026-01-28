@@ -1,0 +1,146 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--oppty-navy);
+    /* Prevents white flashes */
+}
+
+/* Add this to your existing CSS */
+.hero {
+    position: relative;
+    background-color: #1d2b3a;
+    /* Fallback if var fails */
+    background-color: var(--oppty-navy);
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+/* 1. Change P Tag Color & Center Content */
+.hero-p {
+    color: rgba(255, 255, 255, 0.8) !important;
+    /* Soft white/grey for professional look */
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.hero-content-wrapper {
+    position: relative;
+    z-index: 20;
+    /* Higher than particles and SVG */
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    /* Match hero height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    /* Allows clicking background elements if needed */
+}
+
+/* 2. Glow Bolls (Large background orbs) */
+.glow-boll {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.boll-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--oppty-orange);
+    top: -100px;
+    left: -100px;
+    animation: floatOrb 10s infinite alternate;
+}
+
+.boll-2 {
+    width: 350px;
+    height: 350px;
+    background: #3498db;
+    bottom: -50px;
+    right: -50px;
+    animation: floatOrb 12s infinite alternate-reverse;
+}
+
+@keyframes floatOrb {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(50px, 50px);
+    }
+}
+
+/* 3. 6-Slide Fade Cycle (24 seconds total) */
+.hero-slide {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+    pointer-events: auto;
+    /* Re-enable clicks for buttons */
+    /* Animation Fix */
+    opacity: 0;
+    visibility: hidden;
+    /* Added to prevent invisible slides from blocking clicks */
+    animation: fadeCycleSix 24s infinite;
+}
+
+.hero-slide:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.hero-slide:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.hero-slide:nth-child(3) {
+    animation-delay: 8s;
+}
+
+.hero-slide:nth-child(4) {
+    animation-delay: 12s;
+}
+
+.hero-slide:nth-child(5) {
+    animation-delay: 16s;
+}
+
+.hero-slide:nth-child(6) {
+    animation-delay: 20s;
+}
+
+@keyframes fadeCycleSix {
+    0%, 2% { opacity: 0; visibility: hidden; transform: scale(0.95); }
+    5%, 16% { opacity: 1; visibility: visible; transform: scale(1); }
+    19%, 100% { opacity: 0; visibility: hidden; transform: scale(1.05); }
+}
+/* Icon visibility fix */
+.badge-button i {
+    color: var(--oppty-orange);
+    margin: 0 8px;
+    filter: drop-shadow(0 0 8px var(--oppty-orange));
+}
+
+.constellation-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5; /* Lower than content */
+    opacity: 0.4;
+}
