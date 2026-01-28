@@ -1,0 +1,211 @@
+:root {
+    --oppty-orange: #f47920; 
+    --oppty-navy: #1d2b3a;   
+    --text-white: #ffffff;
+    --text-dark: #333333;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--oppty-navy);
+    overflow: hidden; /* Clean vertical look */
+  }
+
+  .v-slider-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    position: relative;
+  }
+
+  .v-slider-inner {
+    height: 100vh;
+    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .v-slide {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Badge styling */
+  .oppty-badge {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-white);
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .oppty-badge span {
+    width: 10px;
+    height: 10px;
+    background: var(--oppty-orange);
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+
+  h1 {
+    color: var(--text-white);
+    font-size: clamp(2rem, 8vh, 4.5rem);
+    margin: 0;
+    max-width: 800px;
+    line-height: 1.1;
+    font-weight: 800;
+  }
+
+  .accent {
+    color: var(--oppty-orange);
+  }
+
+  p {
+    color: var(--text-white);
+    opacity: 0.7;
+    max-width: 550px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 25px;
+  }
+
+  /* Vertical Dots */
+  .v-dots {
+    position: absolute;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .v-dot {
+    height: 40px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .v-dot.active {
+    background: var(--oppty-orange);
+    height: 60px; /* Lengthens the active bar */
+  }
+ 
+.branding-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: var(--bg-light);
+  font-family: 'Inter', sans-serif;
+  padding: 80px 20px;
+  color: var(--text-dark);
+}
+
+/* Header Styles */
+.header .oppty-badge {
+  display: inline-block;
+  background: rgba(244, 121, 32, 0.1);
+  color: var(--oppty-orange);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  color: var(--oppty-navy);
+  font-size: 42px;
+  margin: 0 0 20px 0;
+  font-weight: 800;
+}
+
+.header .accent {
+  color: var(--oppty-orange);
+}
+
+.subtitle {
+  max-width: 750px;
+  margin: 0 auto 60px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Card Grid Styles */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Animation */
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(29, 43, 58, 0.1);
+  border-color: var(--oppty-orange);
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  background-color: var(--oppty-orange);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .icon-box {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.service-card h3 {
+  color: var(--oppty-navy);
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.service-card p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Subtle background pattern like the image */
+.service-card::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, var(--oppty-orange) 0%, transparent 70%);
+  opacity: 0.05;
+  border-radius: 50%;
+}
