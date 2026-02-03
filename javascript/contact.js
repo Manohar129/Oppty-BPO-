@@ -88,4 +88,8 @@ stackcounters.forEach(counter => {
     }
   };
   update();
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> b08f0fcd456cca5d145a1a1e97d269fb5feb5581
