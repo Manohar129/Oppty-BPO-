@@ -47,3 +47,4 @@ document.querySelectorAll('.content h3, .content p').forEach(el => {
 
     el.classList.add('scatter');
 });
+
